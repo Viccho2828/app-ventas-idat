@@ -18,12 +18,12 @@ public class OrderDetail {
     private Double discount;
 
     @ManyToOne
-    @MapsId("productId") // Solo es un identificador
+    @MapsId("productid")
     @JoinColumn(name="productid")
     private Product product;
 
     @ManyToOne
-    @MapsId("orderId") // Solo es un identificador
+    @MapsId("orderid")
     @JoinColumn(name="orderid")
     private Order order;
 

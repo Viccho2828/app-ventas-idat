@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Setter
 @Getter
 @Entity
@@ -18,4 +20,10 @@ public class Usuario {
     private String nombres;
     private String apellidos;
     private Boolean activo;
+
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(name="usuario_rol", joinColumns=@JoinColumn(name="idusuario"),
+            inverseJoinColumns = @JoinColumn(name="idrol"))
+    private Set<Rol> roles;
+
 }
