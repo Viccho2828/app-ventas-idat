@@ -24,5 +24,13 @@ public class Order {
     private String shipcity;
     private String shipregion;
     private String shippostalcode;
+    //@Column(name="sipcountry")  // Mas especifico, te arroja el error si te equivocas al escribir atributos
     private String shipcountry;
+    @ManyToOne
+    @JoinColumn(name="customerid")
+    private Customer customer;
+    @ManyToOne
+    @JoinColumn(name="employeeid")
+    private Employee employee;
+
 }
